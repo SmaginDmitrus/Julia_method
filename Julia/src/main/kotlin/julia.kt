@@ -4,6 +4,7 @@ import org.kotlinmath.*
 import jetbrains.letsPlot.export.ggsave
 import jetbrains.letsPlot.geom.*
 import jetbrains.letsPlot.letsPlot
+import jetbrains.letsPlot.label.labs
 
 
 fun <A,B,C> compose(f:(B)->C,g:(A)->B):(A)->C = {x -> f(g(x))} //создаём шаблон функции, которая создаёт композицию функций
@@ -47,7 +48,7 @@ fun f(z:Complex):Complex{ // определяем функцию, которая
      }
      if(sum.mod > 2.0){// если модуль получившегося комплексного числа больше двойки, останавливаем цикл и запоминаем n
       flag = false
-      tempMap[i][j]=n-1
+      tempMap[i][j]=n
      }
      n++
     }
@@ -65,10 +66,10 @@ fun f(z:Complex):Complex{ // определяем функцию, которая
    }
   }
 
-  val data_3 = mapOf<String, Any>("xs" to xs,"ys" to ys , "zs" to value)
+  val data_3 = mapOf<String, Any>("xs" to xs,"ys" to ys , "value" to value)
   val fig_3 = letsPlot(data_3) + 
           
-          geomTile() {x = "xs"; y = "ys"; fill = "zs"}
+          geomTile() {x = "xs"; y = "ys"; fill = "value";color = "value"} + labs(title = "Color map for Julia visualisation")
 
   ggsave(fig_3, "plot_3.png")
 
