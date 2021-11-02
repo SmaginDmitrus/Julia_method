@@ -27,15 +27,15 @@ fun f(z:Complex):Complex{ // определяем функцию, которая
   var xs = arrayListOf<Int>()
   var ys = arrayListOf<Int>()
   var value = arrayListOf<Int>()
-  var tempMap: Array<Array<Int>> = Array(400, { Array(400,){0} })
+  var tempMap: Array<Array<Int>> = Array(400, { Array(300,){0} })
   
 
 
   for (i in 0..399)
   {
-   for (j in 0..399)
+   for (j in 0..299)
    {
-    z = complex((i-200)/100,(j-200)/100)
+    z = complex((i-200)/100,(j-150)/75)
     n = 0
     flag = true
     while (flag==true)
@@ -58,7 +58,7 @@ fun f(z:Complex):Complex{ // определяем функцию, которая
 
   for (i in 0..399)//создаём массивы координат точек и значений
   {
-   for (j in 0..399){ 
+   for (j in 0..299){ 
     xs.add(i)
     ys.add(j)
     value.add(tempMap[i][j])
