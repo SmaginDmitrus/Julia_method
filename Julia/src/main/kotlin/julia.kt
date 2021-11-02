@@ -75,7 +75,10 @@ fun f(z:Complex):Complex{
   val data_3 = mapOf<String, Any>("xs" to xs,"ys" to ys , "value" to value)
   val fig_3 = letsPlot(data_3) +
 
-          geomTile( ) {x = "xs"; y = "ys"; fill = "value"; color = "value"} + labs(title = "Color map for Julia visualisation")
+           geomTile() {x = "xs"; y = "ys"; fill = "value"; scale_fill_gradient(low = "red", high = "orange")} +
+          labs(title = "Color map for Julia visualisation") +
+          scale_fill_gradient(low = "red", high = "orange")
+
 
   ggsave(fig_3, "plot_3.png")
 
